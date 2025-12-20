@@ -2,6 +2,7 @@ import json
 from minio import Minio
 from minio.error import S3Error
 from io import BytesIO
+import logging
 
 def write_data_to_minio(data, bucket_name, object_name, minio_endpoint, access_key, secret_key, secure=True):
     """
@@ -34,5 +35,7 @@ def write_data_to_minio(data, bucket_name, object_name, minio_endpoint, access_k
             content_type='application/json'
         )
         print(f"Data uploaded to bucket '{bucket_name}' as '{object_name}'")
+        logging.info(f"Data successfully uploaded to MinIO bucket '{bucket_name}' with object name '{object_name}'")
     except S3Error as err:
         print(f"MinIO error: {err}")
+        logging.error(f"Failed to upload data to MinIO: {err}")
