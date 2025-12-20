@@ -1,6 +1,6 @@
 import requests
 
-def get_json_response(url):
+def fetch_data(url):
     try:
         response = requests.get(url)
         response.raise_for_status()

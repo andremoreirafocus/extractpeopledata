@@ -1,7 +1,7 @@
 
 
 from services.write_data_to_minio import write_data_to_minio
-from services.get_json_response import get_json_response
+from services.fetch_data import fetch_data
 from services.extract_and_load import extract_and_load
 import time
 from datetime import datetime

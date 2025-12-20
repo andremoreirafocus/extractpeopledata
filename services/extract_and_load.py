@@ -1,11 +1,11 @@
-from services.get_json_response import get_json_response
+from services.fetch_data import fetch_data
 from services.write_data_to_minio import write_data_to_minio
 import logging
 
 def extract_and_load(api_server, bucket_name, object_name, minio_endpoint, access_key, secret_key, secure=True):
     print("extracting data from API server")
     logging.info("Starting data extraction from API server")
-    data = get_json_response(api_server)
+    data = fetch_data(api_server)
     if data:
         print(f"Data extracted {data}")
         logging.info("Data extraction successful, proceeding to load data into MinIO")
